@@ -22,11 +22,11 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', function() {
-  console.log("DB connection alive");
+  console.log("Successfully Connected to the Database");
 });
 
 //Models lives here
-var Menu     = require('./app/Menu/menu');
+//var Menu     = require('./app/Menu/menu');
 var Items     = require('./app/Item/item');
 var Resturants     = require('./app/Resturants/Resturant');
 
@@ -43,10 +43,6 @@ router.use(function(req, res, next) {
 	next();
 });
 
-// // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-// router.get('/', function(req, res) {
-// 	res.json({ message: 'hooray! welcome to our api!' });	
-// });
 
 // // on routes that end in /Users
 // ----------------------------------------------------
@@ -78,15 +74,6 @@ router.route('/resturant')
 		});
 	});
 
-	// router.route('/resturantitems/:resturant_id')
-
-	// .get(function(req, res) {
-	// 	Resturants.findById(req.params.resturant_id, function(err, Resturants) {
-	// 		if (err)
-	// 			res.send(err);
-	// 		res.json(Resturants.items);
-	// 	});
-	// })
 
 // // on routes that end in /Users/:User_id
 // // ----------------------------------------------------
@@ -101,8 +88,6 @@ router.route('/resturant/:resturant_id')
 	})
 
 	
-
-
 // delete the User with this id
 // delete the user with this id
 .delete(function(req, res) {
@@ -133,15 +118,7 @@ router.route('/item/:resturant_id')
 			res.json({ message: 'Item created!' });
 		});
 		
-		// get(function(req, res) {
-		// 	Resturants.findById(req.params.resturant_id, function(err, Resturants) {
-        // Resturants.items.push(newitem);
-		// 		if (err)
-		// 			res.send(err);
-				
-		// 	});
-		// })
-
+	
 		 	})
 router.route('/item')
 // 	// get all the Users (accessed at GET http://localhost:8080/api/item)
@@ -192,4 +169,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+
