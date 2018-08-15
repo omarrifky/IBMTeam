@@ -22,7 +22,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', function() {
-  console.log("DB connection alive");
+  console.log("Successfully Connected to the Database");
 });
 
 //Models lives here
@@ -169,4 +169,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+
